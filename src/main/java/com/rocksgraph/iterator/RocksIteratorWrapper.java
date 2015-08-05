@@ -1,15 +1,18 @@
 package com.rocksgraph.iterator;
 
+import org.apache.tinkerpop.gremlin.structure.Element;
 import org.rocksdb.RocksIterator;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Created by ashishn on 8/4/15.
  */
-public class RocksIteratorWrapper implements Iterator {
+public class RocksIteratorWrapper<E extends Element> implements Iterator<E> {
 
     RocksIterator iterator;
+
 
     public RocksIteratorWrapper(RocksIterator iterator) {
         this.iterator = iterator;

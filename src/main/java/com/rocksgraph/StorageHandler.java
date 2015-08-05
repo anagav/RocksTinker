@@ -5,6 +5,7 @@ import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.Vertex;
 import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
+import org.rocksdb.RocksIterator;
 
 import java.util.Iterator;
 import java.util.List;
@@ -25,7 +26,21 @@ public class StorageHandler implements VertexHandler, EdgeHandler {
 
     @Override
     public Iterator<Edge> edges() {
-        return null;
+        RocksIterator iterator = edgeDB.newIterator();
+        iterator.seekToFirst();
+        return new Iterator<Edge>() {
+            @Override
+            public boolean hasNext() {
+                return iterator.isValid();
+            }
+
+            @Override
+            public Edge next() {
+                Edge edge = new Rocks
+                 iterator.next();
+                return
+            }
+        };
     }
 
     @Override
