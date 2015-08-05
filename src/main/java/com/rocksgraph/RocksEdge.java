@@ -37,8 +37,7 @@ public class RocksEdge extends RocksElement implements Edge {
 
     @Override
     protected Property createProperty(String key, Object value) {
-        return          new RocksProperty<>(this, key, value);
-        ;
+        return new RocksProperty<>(this, key, value);
     }
 
     @Override

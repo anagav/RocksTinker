@@ -25,7 +25,7 @@ public class RocksProperty<V> implements Property<V> {
 
     @Override
     public String key() {
-        return null;
+        return this.key;
     }
 
     @Override
@@ -45,6 +45,6 @@ public class RocksProperty<V> implements Property<V> {
 
     @Override
     public void remove() {
-
+        element.removeProperty(this);
     }
 }
